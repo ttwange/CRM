@@ -9,6 +9,7 @@ def home(request):
     username =  request.POST['username']
     password = request.POST['password']  
     #authenticate
+    user = authenticate(request, username=username, password=password)
     return render(request, 'home.html', {})
 
 def login_user(request):
