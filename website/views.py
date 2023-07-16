@@ -27,4 +27,9 @@ def logout_user(request):
     return redirect('home')
 
 def register_user(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            
     return render(request, 'register.html', {})
