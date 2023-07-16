@@ -7,7 +7,8 @@ from .models import Record
 # Create your views here.
 def home(request):
     records = Record.objects.all()
-    
+    context = {'records':records}
+
     #checking for log in
     if request.method == 'POST':
       username =  request.POST['username']
@@ -22,7 +23,7 @@ def home(request):
           messages.success(request,'Error loggin in!!')
           return redirect('home')
     else:
-        return render(request, 'home.html', {})
+        return render(request, 'home.html', context)
 
 def logout_user(request):
     logout(request)
