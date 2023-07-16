@@ -40,7 +40,5 @@ def register_user(request):
             return redirect('home')
     else:
         form = SignUpForm
-        return render(request, 'home.html', {'form':form})
-
-
-    return render(request, 'register.html', {})
+        context = {'form':form}
+        return render(request, 'register.html', context)
