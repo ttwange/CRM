@@ -91,10 +91,10 @@ def update_record(request, pk):
         context = {'current_record':current_record}
         form = AddRecordForm(request.POST or None, instance=current_record)
         if form.is_valid():
-                form.save()
-                messages.success(request, "Record updated")
-                return redirect('home')
+          form.save()
+          messages.success(request, "Record updated")
+          return redirect('home')
         return render(request, 'update_record.html', context)
     else:
-        messages.success(request, "you must log in")
+        messages.success(request, "You must log in")
         return redirect('home')
