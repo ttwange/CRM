@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import login,logout, authenticate
 from django.contrib import messages
 
@@ -10,6 +10,13 @@ def home(request):
     password = request.POST['password']  
     #authenticate
     user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+        messages.success(request, "Successful log in!!")
+        return redirect('home')
+    else:
+        messages.success('Error loggin in!!')
+        return redirect('home')
     return render(request, 'home.html', {})
 
 def login_user(request):
