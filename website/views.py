@@ -2,9 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login,logout, authenticate
 from django.contrib import messages
 from .forms import *
+from .models import Record
 
 # Create your views here.
 def home(request):
+    records = Record.objects.all()
+    
     #checking for log in
     if request.method == 'POST':
       username =  request.POST['username']
