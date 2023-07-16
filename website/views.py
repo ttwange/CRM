@@ -58,3 +58,14 @@ def customer_record(request, pk):
     
     context = {'customer_record':customer_record}
     return render(request, 'record.html', context)
+
+def delete_customer(request, pk):
+    if request.user.is_authenticated:
+      delete_it = Record.objects.get(id=pk)
+      delete_it.delete()
+      messages.success(request, "Record Dleted!")
+      return redirect('home')
+    else:
+        messages.success(request, "Log in to view page!")
+        return redirect('home')
+        
