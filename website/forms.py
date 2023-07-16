@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django import forms 
 
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField(label="", widget=forms.TextInput())
-    first_name = forms.CharField(label=,)
-    last_name = forms.CharField(label=)
+    email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email'}))
+    first_name = forms.CharField(label="",widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email'}))
+    last_name = forms.CharField(label="",)
 
