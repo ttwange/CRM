@@ -84,3 +84,8 @@ def add_record(request):
         return redirect('home')
     
     return render(request, 'add_record.html', context)
+
+def update_record(request, pk):
+    if request.user.is_authenticated:
+        current_record = Record.objects.get(id=pk) 
+        form = AddRecordForm(request.POST or None, instance=current_record)
