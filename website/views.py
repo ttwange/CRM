@@ -16,7 +16,7 @@ def home(request):
           messages.success(request, "Successful log in!!")
           return redirect('home')
       else:
-          messages.success('Error loggin in!!')
+          messages.success(request,'Error loggin in!!')
           return redirect('home')
     else:
         return render(request, 'home.html', {})

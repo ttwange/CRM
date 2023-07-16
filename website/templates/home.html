@@ -9,13 +9,9 @@
   {% else %}
   
   <h1>Login</h1>
-  
-  <br>
-  
-  <form action="POST" action="{% url 'home' %}">
-  
+  <br/>
+  <form method="POST" action="{% url 'home' %}">
     {% csrf_token %}
-  
     <form>
       <div class="mb-3">
         <input type="text" class="form-control" name="username", placeholder="Username" required>
@@ -23,8 +19,8 @@
       <div class="mb-3">
         <input type="password" class="form-control" name="password", placeholder="Password" required>
       </div>
-      <br>
-      <button type="submit" class="btn btn-secondary">Login</button>
+      <br/>
+      <button type="submit" class="btn btn-secondary" >Login</button>
     </form>
   </form>
   {% endif %}
