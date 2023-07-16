@@ -5,9 +5,34 @@
   {% if user.is_authenticated %}
   
   <h2>Records...</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">email</th>
+        <th scope="col">phone</th>
+        <th scope="col">address</th>
+        <th scope="col">city</th>
+        <th scope="col">state</th>
+        <th scope="col">zipcode</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
   {% if records %}
   {% for record in records%}
-  {{record}}
+  {{record.created_at}}
+  {{record.first_name}}
+  {{record.last_name}}
+  {{record.email}}
+  {{record.phone}}
+  {{record.address}}
+  {{record.city}}
+  {{record.state}}
+  {{record.zipcode}}
   <br>
   {% endfor %}
   {% endif %}
