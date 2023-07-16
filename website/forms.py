@@ -4,4 +4,6 @@ from django import forms
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(label="", widget=forms.TextInput())
-    
+    first_name = forms.CharField(label=,)
+    last_name = forms.CharField(label=)
+
