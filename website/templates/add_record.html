@@ -6,7 +6,8 @@
   <br>
   <form method="POST" action="{% url 'add_record' %}">
     {% csrf_token %}
-    <br/>
+    {{ form.as_p }}
+
     <button type="submit" class="btn btn-outline-secondary" >Add Record</button>
   </form>
 </div>

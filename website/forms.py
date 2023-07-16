@@ -49,3 +49,16 @@ class AddRecordForm(forms.ModelForm):
 	class Meta:
 		model = Record
 		exclude = ("user",)
+
+
+#create add record form
+
+class AddRecordForm(forms.ModelForm):
+      first_name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrsv={"placeholder":"First Name", "class":"form-control"})
+      last_name
+      email
+      phone
+      address
+      city
+      state
+      zipcode
