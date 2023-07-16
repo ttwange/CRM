@@ -71,6 +71,7 @@ def delete_record(request, pk):
         
 def add_record(request):
     form = AddRecordForm(request.POST or None)
+    context = {'form':form}
     if request.user.is_authenticated:
         if request.method == "POST":
             if form.is_valid():
@@ -81,6 +82,5 @@ def add_record(request):
     else:
         messages.success(request, "you must log in")
         return redirect('home')
-        
-    context = {'form':form}
+    
     return render(request, 'add_record.html', context)
